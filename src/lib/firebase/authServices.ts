@@ -1,4 +1,5 @@
 import CONF from "@/conf/conf";
+import { AuthResponse } from "@/types/type";
 import { initializeApp } from "firebase/app";
 import {
   Auth,
@@ -27,7 +28,10 @@ export class AuthService {
     this.auth = getAuth(app);
   }
 
-  async signupWithEmailPassword({ email, password }: SignupWithEmailPassword) {
+  async signupWithEmailPassword({
+    email,
+    password,
+  }: SignupWithEmailPassword): Promise<AuthResponse> {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         this.auth,
@@ -35,50 +39,67 @@ export class AuthService {
         password
       );
 
-      // console.log(userCredential);
-      return userCredential;
-    } catch (error) {
-      return error;
+      return { userCredential, error: null };
+    } catch (error: any) {
+      //* Modify Error message
+      error.message =
+        error?.code === "auth/email-already-in-use"
+          ? "Email already in use"
+          : error.message;
+
+      return {
+        userCredential: null,
+        error,
+      };
     }
   }
 
-  async signinWithEmailPassword({ email, password }: SignupWithEmailPassword) {
-    try {
-      const user = await signInWithEmailAndPassword(this.auth, email, password);
-      // console.log(user);
-    } catch (error) {}
-  }
-
-  async signupWithGoogle() {
+  //
+  async signupWithGoogle(): Promise<AuthResponse> {
     const provider = new GoogleAuthProvider();
     try {
-      const result = await signInWithPopup(this.auth, provider);
+      const userCredential = await signInWithPopup(this.auth, provider);
 
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
+      return { userCredential, error: null };
+    } catch (error: Error | any) {
+      // TODO: Modify Error Message using code
+      error.message = error?.code as String;
 
-      if (!credential) {
-        throw new Error("credential not found");
-      }
-
-      // console.log("user login");
-
-      localStorage.setItem("OAuthCredential", JSON.stringify(credential));
-
-      return result.user;
-    } catch (error) {
-      // console.log("error: ", error);
-      return error;
+      return {
+        userCredential: null,
+        error,
+      };
     }
   }
 
-  async logOut() {
-    // localStorage.removeItem("OAuthCredential");
+  async signinWithEmailPassword({
+    email,
+    password,
+  }: SignupWithEmailPassword): Promise<AuthResponse> {
     try {
-      const response = await signOut(this.auth);
-      // console.log("User Logout");
+      const userCredential = await signInWithEmailAndPassword(
+        this.auth,
+        email,
+        password
+      );
+
+      return { userCredential, error: null };
+    } catch (error: Error | any) {
+      // TODO: Modify Error Message using code
+      error.message = error?.code as String;
+
+      return {
+        userCredential: null,
+        error,
+      };
+    }
+  }
+
+  async logOut(): Promise<void | Error> {
+    try {
+      await signOut(this.auth);
     } catch (error) {
-      // console.log("Logout Error: ", error);
+      return error as Error;
     }
   }
 

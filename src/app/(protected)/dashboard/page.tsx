@@ -11,18 +11,10 @@ import {
 } from "@/components/ui/card";
 import UserContext from "@/context/user/userContext";
 import authService from "@/lib/firebase/authServices";
-import { useRouter } from "next/navigation";
-import React, { useContext, useEffect } from "react";
+import { useContext } from "react";
 
-export default function DashBoard() {
-  const router = useRouter();
+export default function Dashboard() {
   const { user } = useContext(UserContext);
-
-  useEffect(() => {
-    if (!user) {
-      router.replace("/signup");
-    }
-  });
 
   return (
     <div className="container flex justify-center items-center h-screen">
