@@ -22,6 +22,7 @@ export default function SingUp() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setMessage(null);
 
     if (!credential.email || !credential.password) {
       console.log("Enter valid username & password");
