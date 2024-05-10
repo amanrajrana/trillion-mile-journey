@@ -10,7 +10,7 @@ export default function RootLayout({
     <div className="grid lg:grid-cols-11 lg:max-h-screen lg:min-h-[700px] overflow-hidden">
       <div className="lg:relative h-full lg:col-span-5">
         <Image
-          src={"/painting-person-standing-cliff-with-blue-lake-background.jpg"}
+          src={"/images/painting-person-standing-cliff-with-blue-lake-bg.jpg"}
           alt="background"
           height={500}
           width={500}
@@ -22,7 +22,7 @@ export default function RootLayout({
       <div className="-mt-48 lg:mt-0 lg:col-span-6 flex justify-center items-center flex-col py-8">
         <div className="w-full flex flex-col gap-y-2 justify-center items-center p-4">
           <Image
-            src={"./logo.svg"}
+            src={"/images/logo.svg"}
             className="h-[37px]"
             alt="logo"
             height={37}
