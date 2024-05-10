@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+#vs code 
+.vscode/
+
+#service worker
+/public/sw.js
+/public/swe-worker-development.js

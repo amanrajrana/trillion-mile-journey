@@ -1,0 +1,42 @@
+{
+  "name": "Trillion Mile",
+  "screenshots": [
+    {
+      "src": "https://cdn.dribbble.com/userupload/4483516/file/original-13e02301aa75d2deb47db560220f3334.jpg?resize=1024x768",
+      "sizes": "1024x768",
+      "type": "image/jpg",
+      "description": "The type of your image, such as image/png"
+    }
+  ],
+  "description": "Trillion Mile",
+  "short_name": "Trillion Mile",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#00B2FF",
+  "background_color": "#071727",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

@@ -7,22 +7,22 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 export default function Cards() {
   const CARD_METADATA = [
     {
-      image: "/rocket.png",
+      image: "/images/rocket.png",
       heading: "Introduction to Rocket Science",
       text: "Covers fundamentals, design, construction, operation and programming of robots. Covers fundamentals, design, construction, operation and",
     },
     {
-      image: "/atom.png",
+      image: "/images/atom.png",
       heading: "Astro Physics",
       text: "Covers fundamentals, design, construction, operation and programming of robots. Covers fundamentals, design, construction, operation and",
     },
     {
-      image: "/ai-chip.png",
+      image: "/images/ai-chip.png",
       heading: "Artificial Intelligence",
       text: "Covers fundamentals, design, construction, operation and programming of robots.",
     },
     {
-      image: "/telescope.png",
+      image: "/images/telescope.png",
       heading: "Astro Physics",
       text: "Covers fundamentals, design, construction, operation and programming of robots. Covers fundamentals, design, construction, operation and",
     },

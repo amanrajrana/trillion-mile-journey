@@ -8,7 +8,7 @@ export default function NavBar() {
       <nav className="container flex justify-between items-center py-5">
         <div>
           <Image
-            src={"./logo.svg"}
+            src={"/images/logo.svg"}
             className="h-[37px]"
             alt="logo"
             height={37}
